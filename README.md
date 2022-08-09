@@ -1,1 +1,15 @@
-# projeto-de-prir
+# Projeto da matéria de PRIR 
+
+### Alunos
+               Thiago
+               Isadora
+               Alan
+
+|  DESCRICAO       |       IP        |      HOSTNAME     |          FQDN                      |     ALIASE       |
+|------------------|-----------------|-------------------|------------------------------------|------------------|
+| VM1-PC1          | 192.168.24.99   |   grupo7-vm1-pc1  | thiago.grupo7-924.ifalara.net      | thi              |
+| VM2-PC1          | 192.168.24.98   |   grupo7-vm2-pc1  | thiago.grupo7-924.ifalara.net      | thi              |
+| VM1-PC2          | 192.168.24.97   |   grupo7-vm1-pc2  | isa.grupo7-924.ifalara.net         | isa              |
+| VM2-PC2          | 192.168.24.96   |   grupo7-vm2-pc2  | isa.grupo7-924.ifalara.net         | isa              |
+| VM1-PC3          | 192.168.24.95   |   grupo7-vm1-pc3  | alan.grupo7-924.ifalara.net        | alan             |
+| VM2-PC3          | 192.168.24.94   |   grupo7-vm2-pc3  | alan.grupo7-924.ifalara.net        | alan             |
