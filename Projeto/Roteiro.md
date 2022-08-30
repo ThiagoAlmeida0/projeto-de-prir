@@ -12,19 +12,13 @@ Com o objetivo de colocar em prática os conhecimentos adquiridos ao longo das m
 
 ### Criação das máquinas virtuais
 
-### Acesso remoto
-
-### Acesso à VM via Host-Only
-
-### Configuração estática dos IPs
-
 #
 
 ## Introdução
 
 ### Descrição do projeto
 
-Com o objetivo de colocar em prática os conhecimentos adquiridos ao longo das matérias de redes de computadores, este roteiro detalha os procedimentos necessários para a criação de um ambiente de rede com 8 máquinas virtuais, que utilizam o Sistema Operacionl Ubuntu Server. Para isso, serão utilizados 4 computadores do laboratório de redes, que devem se conectar através de um switch, para resultar em servidores conectados em um mesma rede e com acesso remoto através do ssh.
+Com o objetivo de colocar em prática os conhecimentos adquiridos ao longo das matérias de redes de computadores, este roteiro detalha os procedimentos necessários para a criação de um ambiente de rede com 8 máquinas virtuais (VM), que utilizam o Sistema Operacionl Ubuntu Server. Para isso, serão utilizados 4 computadores do laboratório de redes, que devem se conectar através de um switch, para resultar em servidores conectados em um mesma rede e com acesso remoto através do ssh.
 
 ### Configurações de hardware		
 
@@ -38,6 +32,12 @@ As máquinas virtuais devem ser criadas seguindo os especificações abaixo:
 ### Topologia da rede
 
  A topologia utilizada nesse projeto é a estrela. Neste tipo, 
+ 
+ 
+ 
+ ![Topografia drawio](https://user-images.githubusercontent.com/88728695/187520442-13669a17-05a3-4130-8b4a-03c7406bc523.png)
+
+ 
 
 ### Configuração dos IPs
 
@@ -63,3 +63,50 @@ Tabela 1: Definições de endereços IPs da Rede e Nomes de Hosts
 | VM2-PC3          | 192.168.24.103  |   grupo7-vm2-pc3  | almeida.grupo7-924.ifalara.net     | alm              |
 | VM1-PC4          | 192.168.24.104  |   grupo7-vm1-pc4  | janjan.grupo7-924.ifalara.net      | jan              |
 | VM2-PC4          | 192.168.24.105  |   grupo7-vm2-pc4  | silva.grupo7-924.ifalara.net       | sil              |
+
+## Criação das Máquinas Virtuais
+
+1. O primeiro passo consiste na criação de uma pasta para salvar as VMs. Em nosso caso, a pasta criada foi “924-grupo7” dentro da pasta “VM” de “labredes”.
+
+![Pasta do grupo](https://user-images.githubusercontent.com/88728695/187516969-d07a7ae3-c672-49a4-b56b-f244c3f3ed1e.png)
+
+2. Em seguida, abrimos o virtualbox e criamos duas máquinas virtuais, seguindo os padrões de hardware já comentados anteriormente.  A criação das máquinas consiste em:
+    - Importar o appliance, que está salvo na subpasta “images” da pasta “labredes”.
+     
+    `Arquivo >  `
+    
+    ![Importação do appliance](https://user-images.githubusercontent.com/88728695/187517914-f256b80f-16e3-4021-bf60-3b6546bc845f.png)
+
+    - Mudar o nome da VM, seguindo o padrão da tabela;
+    - Mudar a pasta padrão para a pasta que foi criada.
+
+![Criacao da máquina](https://user-images.githubusercontent.com/88728695/187518320-0aac1e6c-1f86-4c28-9aa0-59d57b5a9684.png)
+
+Antes de dar prosseguimento ao projeto, é necessário fazer a instalação do pacote net-tools para que tudo funcione corretamente. O comando que a ser utilizado é:
+
+`sudo apt-get install net-tools`
+
+Em seguida, é necessário logar como administrador:
+` Login: administrador
+| Senha: adminifal `
+
+## Configuração dos IPs
+
+Após logar nas VMs, 
+
+1. Primeiro é necessário verificar o nome do arquivo netplan, digitando o comando:
+`ls -la /etc/netplan`
+  - A saída que for dada será utilizada para acessar o arquivo, sendo digitada depois de netplan/
+
+2. Acesse o arquivo.Em nosso caso o comando foi:
+`sudo nano /etc/netplan/01-netcfg.yaml`
+
+3. Ao abrir o arquivo, ele apresentará as seguintes configurações:
+ 
+network:
+  ethernets:
+    enp0os3:
+      dhcp4: true
+  version: 2
+
+
