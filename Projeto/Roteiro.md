@@ -27,7 +27,7 @@ Com o objetivo de colocar em prática os conhecimentos adquiridos ao longo das m
  * PINGs
  * SSH
 
-
+### Considerações finais
 #
 
 # Introdução
@@ -291,6 +291,8 @@ Figura 17: Rede formada pelos 4 PCs
     
 # Testes
 
+Depois de seguir todos os passos acima, a última etapa do projeto é testar e verificar se tudo está funcionando corretamente. Para realizar essa verificação, utilizaremos dois tipos de teste: Ping e teste de SSH
+
 ### PING
 Para esse tipo de teste serão utilizados respectivamente os IPs, hostnames, FQDNs e aliases (tabela 1).
 
@@ -308,3 +310,4 @@ Figura 19:
 
 ![ssh-pc4](https://user-images.githubusercontent.com/88728695/187691206-e6c0e905-aae2-49d5-9314-22ca455cd8b8.png)
 
+# Considerações finais
