@@ -317,4 +317,10 @@ Figura 19:
 
 ![ssh-pc4](https://user-images.githubusercontent.com/88728695/187691206-e6c0e905-aae2-49d5-9314-22ca455cd8b8.png)
 
+
+Figura 20: 
+
+![photo_4934092171364116998_y(6)](https://user-images.githubusercontent.com/88728695/187731959-b36eb845-5355-43fe-8965-d6623134a671.jpg)
+
+
 # Considerações finais
