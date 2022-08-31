@@ -86,6 +86,8 @@ Com as VMs já criadas, é necessário fazer a instalação do pacote net-tools 
 
 `sudo apt-get install net-tools`
 
+![login feito ](https://user-images.githubusercontent.com/88728695/187567249-2c8698d3-ba8b-4a25-b5eb-98bb572b07ee.png)
+
 Em seguida, é necessário logar como administrador:
 ` Login: administrador
 | Senha: adminifal `
@@ -122,11 +124,21 @@ Ao final dessa etapa o arquivo `.YAML` deverá estar assim:
 
 ![configuração estática do ip](https://user-images.githubusercontent.com/88728695/187564956-a75ee26a-fc85-4cc9-9d14-d8bd1f335352.png)
 
->É identação correta é de extrema importância nessa etapa. Para que não ocorra nenhum erro, utilize a tecla espaço para realizar essa ação, e não a tecla tab.
+>A identação correta é de extrema importância nessa etapa. Para que não ocorra nenhum erro, utilize a tecla espaço para realizar essa ação, e não a tecla tab.
 
-* Para visualizar se as mudanças foram efetividas, digite o comando:
+* Para visualizar se as mudanças foram efetivadas, digite o comando:
 `ifconfig -a`
 
 #
+
+### Configuração dos hostnames
+
+O próximo passo foi adicionar os hostnames em cada VM, de acordo com a tabela. Isso deve ser realizado através do comando 
+
+`sudo hostnamectl set-hostname <hostname>`
+
+![atribuindo nomes aos servidores hostname](https://user-images.githubusercontent.com/88728695/187567989-f8e9758a-71b2-451e-8215-55a7a3ef2156.png)
+
+
 ## SSH e firewall
 
