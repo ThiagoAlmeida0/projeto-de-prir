@@ -7,25 +7,25 @@ Com o objetivo de colocar em prática os conhecimentos adquiridos ao longo das m
 ### [Introdução](#introdução-1)
 * [Descrição do projeto](#descrição-do-projeto)
 * [Configurações de hardware](#configurações-de-hardware)
-* [Topologia da rede](#topologia-de-rede)
+* [Topologia da rede](#topologia-da-rede)
 * [Organização dos IPs](#organização-dos-ips)
 
 ### Máquinas virtuais
- * [Criação das VMs]
- * [Configuração dos IPs]
- * [Configuração dos hostnames]
+ * [Criação das VMs](#criação-das-vms)
+ * [Configuração dos IPs](#configuração-dos-ips)
+ * [Configuração dos hostnames](#configuração-dos-hostnames)
 
 ### SSH e firewall
 
 ### Nomes estáticos 
- * [Configuração dos nomes estáticos]
- * [Adiocionando usuários]
+ * [Configuração dos nomes estáticos](#nomes-estáticos)
+ * [Adiocionando usuários](#usuários)
 
 ### Conexão entre as máquinas
 
 ### Testes
- * [PINGs]
- * [SSH]
+ * [PINGs](#ping)
+ * [SSH](#ssh-e-firewall)
 
 ### Considerações finais
 #
