@@ -1,9 +1,12 @@
 # Projeto da matéria de PRIR 
 
 ### Alunos
-               Thiago
-               Isadora
-               Alan
+               Alan Barbosa dos Santos
+               Thiago Almeida Pereira Filho
+               Isadora Barbosa Macedo Canuto Ferreira
+               
+               Turma 924
+               
 
 |  DESCRICAO       |       IP        |      HOSTNAME     |          FQDN                      |     ALIASE       |
 |------------------|-----------------|-------------------|------------------------------------|------------------|
