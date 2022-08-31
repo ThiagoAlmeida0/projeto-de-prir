@@ -167,6 +167,7 @@ sudo netplan apply
 Ao final dessa etapa o arquivo `.YAML` deverá estar assim:
 
 Figura 7: Configuração do IP
+
 ![configuração estática 2](https://user-images.githubusercontent.com/88728695/187685382-68216c44-d2c9-4891-9f6b-77e2ed540d6f.png)
 
 >A identação correta é de extrema importância nessa etapa. Para que não ocorra nenhum erro, utilize a tecla espaço para realizar essa ação, e não a tecla tab.
@@ -317,26 +318,38 @@ Depois de seguir todos os passos acima, a última etapa do projeto é testar e v
 ### PING
 Para esse tipo de teste serão utilizados respectivamente os IPs, hostnames, FQDNs e aliases (tabela 1).
 
-Figura 18:
+Figura 18: Respectivamente:
+- Ping vm1-pc1 para vm2-pc1 (IP)
+- Ping vm1-pc1 para vm1-pc2 (Hostname)
+- Ping vm1-pc1 para v2-pc2 (FQDN)
+- Ping vm1-pc1 para vm1-pc3 (aliase)
 
 ![ping-pc1(vm2)-pc2-pc3(vm1) (1)](https://user-images.githubusercontent.com/88728695/187689291-5e736e3a-07b1-4996-945a-9f73879e0069.png)
 
-Figura 19:
+Figura 19: Respectivamente:
+- Ping vm2-pc1 para vm2-pc3 (IP)
+- Ping vm2-pc1 para vm1-pc4 (Hostname)
+- Ping vm2-pc1 para vm2-pc4(FQDN)
+- Ping vm2-pc1 para vm1-pc1 (aliase)
 
 ![ping-pc3(vm2)-pc4-pc(vm1) (1)](https://Projetouser-images.githubusercontent.com/88728695/187689299-ac3e2b38-7779-43d3-b4b1-b6907ab0e19e.png)
 
 ### SSH
 
 Figura 20:
+
 <img src="Imagens/SSH_pt1.jpg" title="Figura 20: " width="800" />
 
 Figura 21:
+
 <img src="Imagens/SSH_pt2.jpg" title="Figura 21: " width="800" />
 
 Figura 22:
+
 <img src="Imagens/SSH_pt3.jpg" title="Figura 22: " width="800" />
 
 Figura 23:
+
 <img src="Imagens/SSH_pt4.jpg" title="Figura 23: " width="800" />
 
 # Considerações finais
