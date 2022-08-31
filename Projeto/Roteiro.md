@@ -4,28 +4,28 @@ Com o objetivo de colocar em prática os conhecimentos adquiridos ao longo das m
 
 # Sumário
 
-### Introdução
-* Descrição do projeto
-* Configurações de hardware
-* Topologia da rede
-* Organização dos IPs
+### [Introdução](#introdução-1)
+* [Descrição do projeto](#descrição-do-projeto)
+* [Configurações de hardware](#configurações-de-hardware)
+* [Topologia da rede](#topologia-de-rede)
+* [Organização dos IPs](#organização-dos-ips)
 
 ### Máquinas virtuais
- * Criação das VMs
- * Configuração dos IPs
- * Configuração dos hostnames
+ * [Criação das VMs]
+ * [Configuração dos IPs]
+ * [Configuração dos hostnames]
 
 ### SSH e firewall
 
 ### Nomes estáticos 
- * Configuração dos nomes estáticos
- * Adiocionando usuários
+ * [Configuração dos nomes estáticos]
+ * [Adiocionando usuários]
 
 ### Conexão entre as máquinas
 
 ### Testes
- * PINGs
- * SSH
+ * [PINGs]
+ * [SSH]
 
 ### Considerações finais
 #
@@ -44,7 +44,19 @@ As máquinas virtuais devem ser criadas seguindo os especificações abaixo:
 * bla
 
 Figura 1: Configuração de hardware das VMs
-*FOTO DAS CONFIGURAÇÕES DE HARDWARE AQUI*
+
+A maquina virtual utilizada contém as seguintes especificações técninas:
+
+- Processador: 1 CPU 
+- Memória principal: 512mb
+- Memŕoia secundária: 10gb
+- Memóriade vídeo: 16mb
+
+
+
+<img src="Imagens/configuraçãoDaVm.png" title="Figura 23: " width="800" />
+
+
 
 ### Topologia da rede
 
@@ -260,6 +272,8 @@ Figura 13
 
 - Agora, é necessário adicionar 4 usuários iguais em todas as VMs. Para melhor organização, você pode criar uma tabela.
 
+Tabela 2: Usuários
+
 |  Usuário         |  
 |------------------|
 | alan             | 
@@ -309,18 +323,22 @@ Figura 18:
 
 Figura 19:
 
-![ping-pc3(vm2)-pc4-pc(vm1) (1)](https://user-images.githubusercontent.com/88728695/187689299-ac3e2b38-7779-43d3-b4b1-b6907ab0e19e.png)
+![ping-pc3(vm2)-pc4-pc(vm1) (1)](https://Projetouser-images.githubusercontent.com/88728695/187689299-ac3e2b38-7779-43d3-b4b1-b6907ab0e19e.png)
 
 ### SSH
 
-![ssh-pc1(vm2)-pc2(vm1)](https://user-images.githubusercontent.com/88728695/187691197-4ca78caf-d275-4e73-8c60-485083d98105.png)
+Figura 20:
+<img src="Imagens/SSH_pt1.jpg" title="Figura 20: " width="800" />
 
-![ssh-pc4](https://user-images.githubusercontent.com/88728695/187691206-e6c0e905-aae2-49d5-9314-22ca455cd8b8.png)
+Figura 21:
+<img src="Imagens/SSH_pt2.jpg" title="Figura 21: " width="800" />
 
+Figura 22:
+<img src="Imagens/SSH_pt3.jpg" title="Figura 22: " width="800" />
 
-Figura 20: 
-
-![photo_4934092171364116998_y(6)](https://user-images.githubusercontent.com/88728695/187731959-b36eb845-5355-43fe-8965-d6623134a671.jpg)
-
+Figura 23:
+<img src="Imagens/SSH_pt4.jpg" title="Figura 23: " width="800" />
 
 # Considerações finais
+
+Portanto, consideramos a importância desse projeto para o ensino da área de rede de computadores, como forma prática da teoria aplicada em sala de aula. Desse modo, ao final do projeto foi possível aplicar o conceito da topologia de rede do tipo estrela, por meio de 8 máquinas virtuais que se conectam através de um switch de 8 portas. Assim, através dos comandos de PING e SSH é possível acessar todas as máquinas que se conectam na rede local.
