@@ -38,21 +38,14 @@ Com o objetivo de colocar em prática os conhecimentos adquiridos ao longo das m
 
 ### Configurações de hardware		
 
-As máquinas virtuais devem ser criadas seguindo os especificações abaixo:
-* memória
-* bla
-* bla
-
-Figura 1: Configuração de hardware das VMs
-
-A maquina virtual utilizada contém as seguintes especificações técninas:
+As máquinas virtuais utilizadas contém as seguintes especificações técninas:
 
 - Processador: 1 CPU 
 - Memória principal: 512mb
 - Memŕoia secundária: 10gb
 - Memóriade vídeo: 16mb
 
-
+Figura 1: Configuração de hardware das VMs
 
 <img src="Imagens/configuraçãoDaVm.png" title="Figura 23: " width="800" />
 
@@ -336,20 +329,32 @@ Figura 19: Respectivamente:
 
 ### SSH
 
-Figura 20:
+Figura 20: Respectivamente:
+
+- SSH vm1-pc1 para vm2-pc1 no user alan (IP) 
+- SSH vm1-pc1 para vm1-pc2 no user isadora (Hostname)
 
 <img src="Imagens/SSH_pt1.jpg" title="Figura 20: " width="800" />
 
 Figura 21:
 
+- SSH vm1-pc1 para v2-pc2 no user thiago (FQDN)
+
+-Como foi a primeira vez se concectando com essa máquina e usuário também foi nescessário dar a autorização
+
 <img src="Imagens/SSH_pt2.jpg" title="Figura 21: " width="800" />
 
 Figura 22:
+
+- SSH vm1-pc1 para vm1-pc3 no user janjan (aliase)
+- SSH vm1-pc1 para vm2-pc3 no user janjan (aliase)
 
 <img src="Imagens/SSH_pt3.jpg" title="Figura 22: " width="800" />
 
 Figura 23:
 
+- SSH vm1-pc1 para vm1-pc4 no user alan (IP) 
+- SSH vm1-pc1 para vm2-pc4 no user alan (IP) 
 <img src="Imagens/SSH_pt4.jpg" title="Figura 23: " width="800" />
 
 # Considerações finais
