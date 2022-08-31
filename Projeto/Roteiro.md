@@ -12,6 +12,8 @@ Com o objetivo de colocar em prática os conhecimentos adquiridos ao longo das m
 
 ### Criação das máquinas virtuais
 
+###
+
 #
 
 ## Introdução
@@ -149,7 +151,7 @@ Ao abrir o arquivo você deverá:
 -
 ![comentando as linhas IP e ativando o dhcp nas configurações do netplan](https://user-images.githubusercontent.com/88728695/187570512-680b4427-1e84-4140-911a-ae354e654af2.png)
 
-- Deverá, também, trocar a configuração de rede do adaptador 1 deve ser trocada para NAT
+- Deverá, também, trocar a configuração de rede do adaptador 1 para NAT.
 
 Posteriormente, é necessário atualizar os pacotes com as novas definições e versões do repositório do Ubuntu, utilizando os comandos:
 
@@ -162,7 +164,7 @@ Posteriormente, é necessário atualizar os pacotes com as novas definições e 
 Após a finalização dessa etapa, nós iniciamos a instalação do servidor servidor ssh. Ao digitar o comando `systemctl status ssh` verificamos que o shh estava inativo, então é necessário que ele seja instalado. Desse modo, utilizamos o comando:
 
 `sudo apt-get install openssh-server`
->Você pode digitar novamente o primeiro comando para se certificar que está tudo certo
+>Você pode digitar novamente o primeiro comando para se certificar que está tudo certo.
 
 Após a instação do ssh é necessário ajustar o firewall, a fim de permitir conexões remotas. Para ajustá-lo digite:
 ```shell
@@ -171,9 +173,52 @@ sudo ufw enable
 ```
 ![ativando o firewall](https://user-images.githubusercontent.com/88728695/187575175-65d6b0f5-665d-4f3c-8248-66c660c7c904.png)
 
-## Acesso remoto SSH com Host Only
+## Acesso via Host Only
+
+1.
+2.
+3.
+4. Na vm, verifique a existência de ``enp0s8``, utilizando o comando `ifconfig -a`.
+5. Caso não haja, é necessário adicioná-lo. Para isso, volte no arquivo `sudo nano /etc/netplan/01-netcfg.yaml` e o edite.
+
+![segundo dhcp](https://user-images.githubusercontent.com/88728695/187667183-671c12ab-fc0d-47df-9fb7-66dae6b26b29.png)
+
+6. Depois, digite `sudo netplan apply` para ativar as mudanças.
+7. Além disso, é necessário ir nas configurações de rede e habilitar o adaptador 2. 
+8. Para visualizar se tudo ocorreu corretamente, digite `ifconfig -a`. A resposta deverá ser assim:
+
+![configurações ativadas e IP da nova interface checado](https://user-images.githubusercontent.com/88728695/187668160-0b860de0-f1ab-41ee-a3ed-034c7281808f.png)
+
 
 ## Nomes estáticos 
+
+Para configurar os nomes estáticos digite o comando:
+
+```shell
+sudo nano /etc/hosts
+```
+
+Utilizando a tabela 1, modifque o arquivo hosts.
+
+![_adicionando os nomes estáticos o](https://user-images.githubusercontent.com/88728695/187666306-4ee58503-b828-46a9-b7b1-948eab71a723.png)
+
+### Usuários
+
+Agora, é necessário adicionar 4 usuários iguais em todas as VMs. Para melhor organização, você pode criar uma tabela.
+
+|  Usuário         |  
+|------------------|
+| alan             | 
+| isadora          | 
+| thiago           | 
+| janjan           | 
+
+O comando para adicionar os usuários é:
+
+```shell
+ sudo adduser <usuário>
+```
+![adicionando users](https://user-images.githubusercontent.com/88728695/187670056-9cc50fa3-9c51-4161-8fc4-9f435e53a5df.png)
 
 
 
