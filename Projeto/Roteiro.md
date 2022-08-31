@@ -2,21 +2,35 @@
 
 Com o objetivo de colocar em prática os conhecimentos adquiridos ao longo das matérias de redes de computadores (PIRD e SERD), este roteiro detalha os procedimentos necessários para a criação de um ambiente de rede com 8 máquinas virtuais com o Ubuntu Server. 
 
-## Sumário
+# Sumário
 
 ### Introdução
 * Descrição do projeto
 * Configurações de hardware
 * Topologia da rede
-* Configuração dos IPs
+* Organização dos IPs
 
-### Criação das máquinas virtuais
+### Máquinas virtuais
+ * Criação das VMs
+ * Configuração dos IPs
+ * Configuração dos hostnames
 
-###
+### SSH e firewall
+
+### Nomes estáticos 
+ * Configuração dos nomes estáticos
+ * Adiocionando usuários
+
+### Conexão entre as máquinas
+
+### Testes
+ * PINGs
+ * SSH
+
 
 #
 
-## Introdução
+# Introdução
 
 ### Descrição do projeto
 
@@ -29,18 +43,18 @@ As máquinas virtuais devem ser criadas seguindo os especificações abaixo:
 * bla
 * bla
 
+Figura 1: Configuração de hardware das VMs
 *FOTO DAS CONFIGURAÇÕES DE HARDWARE AQUI*
 
 ### Topologia da rede
 
  A topologia que utilizamos foi a do tipo estrela, nesse modelo existe um HUB central, no nosso caso um switch, que faz o gerenciamento dos dados que passam pela rede, por causa disso é nescessário que para a rede funcionar todas as máquinas devem estar conectadas ao switch por cabo de rede. Sendo assim também os dados não passam por todas as máquinas, mas somento pela qual o dado está endereçado.
  
-<p><center> Figura 1: Topologia estrela</center></p>   
+<p><center> Figura 2: Topologia estrela</center></p>   
 <img src="Imagens/topologia-estrela.png" title="Figura 1: Topologia de Rede Estrela" width="1000" />
 
  
-
-### Configuração dos IPs
+### Organização dos IPs
 
 Para melhor organização das máquinas, as organizaremos em uma tabela com suas descrições, IPs, Hostnames, FQDNs e aliases, seguindo o seguinte padrão:
 - Descrição:
@@ -65,43 +79,55 @@ Tabela 1: Definições de endereços IPs da Rede e Nomes de Hosts
 | VM1-PC4          | 192.168.24.104  |   grupo7-vm1-pc4  | janjan.grupo7-924.ifalara.net      | jan              |
 | VM2-PC4          | 192.168.24.105  |   grupo7-vm2-pc4  | silva.grupo7-924.ifalara.net       | sil              |
 
-## Criação das Máquinas Virtuais
+# Máquinas Virtuais
+
+## Criação das VMs
 
 1. O primeiro passo consiste na criação de uma pasta para salvar as VMs. Em nosso caso, a pasta criada foi “924-grupo7” dentro da pasta “VM” de “labredes”.
 
+Figura 3: Pasta do grupo
 ![Pasta do grupo](https://user-images.githubusercontent.com/88728695/187516969-d07a7ae3-c672-49a4-b56b-f244c3f3ed1e.png)
 
 2. Em seguida, abrimos o virtualbox e criamos duas máquinas virtuais, seguindo os padrões de hardware já comentados anteriormente.  A criação das máquinas consiste em:
     - Importar o appliance, que está salvo na subpasta “images” da pasta “labredes”.
      
-    `Arquivo >  `
+    `Arquivo > importar appliance `
     
+    Figura 4: Importação do appliance
     ![Importação do appliance](https://user-images.githubusercontent.com/88728695/187517914-f256b80f-16e3-4021-bf60-3b6546bc845f.png)
 
     - Mudar o nome da VM, seguindo o padrão da tabela;
     - Mudar a pasta padrão para a pasta que foi criada.
 
+Figura 5: Criação da VM
 ![Criacao da máquina](https://user-images.githubusercontent.com/88728695/187518320-0aac1e6c-1f86-4c28-9aa0-59d57b5a9684.png)
 
-Com as VMs já criadas, é necessário fazer a instalação do pacote net-tools para que tudo funcione corretamente. O comando que a ser utilizado é:
-
-`sudo apt-get install net-tools`
-
-![login feito ](https://user-images.githubusercontent.com/88728695/187567249-2c8698d3-ba8b-4a25-b5eb-98bb572b07ee.png)
-
-Em seguida, é necessário logar como administrador:
+Com as VMs já criadas, é necessário fazer login como administrador:
 ` Login: administrador
 | Senha: adminifal `
+
+3. Depois é necessário fazer a **instalação do pacote net-tools** para que tudo funcione corretamente. O comando que a ser utilizado é:
+
+```shell
+sudo apt-get install net-tools
+```
+Figura 6: Instalação do pacote net-tools
+![login feito ](https://user-images.githubusercontent.com/88728695/187567249-2c8698d3-ba8b-4a25-b5eb-98bb572b07ee.png)
+
 
 ## Configuração dos IPs
 
 Após logar nas VMs:
 
 1. Primeiro é necessário verificar o nome do arquivo netplan, digitando o comando:
-`ls -la /etc/netplan`
+```shell
+ls -la /etc/netplan
+```
   
 2. Acesse o arquivo .YAML
-`sudo nano /etc/netplan/01-netcfg.yaml`
+```shell
+sudo nano /etc/netplan/01-netcfg.yaml
+```
    >A saída que foi dada ao digitar o primeiro comando será utilizada para acessar o arquivo, sendo digitada depois de `netplan/`.
 
 3. Ao abrir o arquivo, ele apresentará as seguintes configurações:
@@ -115,96 +141,114 @@ network:
 ```
    - Primeiro, insira os campos `addresses` e `gateway4` dentro de `enp0os3`.
    - Depois, desative o dhcp4, mudando o seu valor para false.
-  >Para salvar as modficações, digite Ctrl+x, depois y e aperte enter
+  >Para sair desta parte digite Ctrl+x, depois y e aperte enter
 
 Para aplicar efetivamente as mudanças, digite o comando:
 
-`sudo netplan apply`
+```shell
+sudo netplan apply
+```
+>Sempre que fizer alguma alteração nesse arquivo, esse comando deverá ser digitado para aplicar a mudança.
 
 Ao final dessa etapa o arquivo `.YAML` deverá estar assim:
 
-![configuração estática do ip](https://user-images.githubusercontent.com/88728695/187564956-a75ee26a-fc85-4cc9-9d14-d8bd1f335352.png)
+Figura 7: Configuração do IP
+![configuração estática 2](https://user-images.githubusercontent.com/88728695/187685382-68216c44-d2c9-4891-9f6b-77e2ed540d6f.png)
 
 >A identação correta é de extrema importância nessa etapa. Para que não ocorra nenhum erro, utilize a tecla espaço para realizar essa ação, e não a tecla tab.
 
 * Para visualizar se as mudanças foram efetivadas, digite o comando:
-`ifconfig -a`
+
+```shell
+ifconfig -a
+```
 
 #
 
 ### Configuração dos hostnames
 
-O próximo passo foi adicionar os hostnames em cada VM, de acordo com a tabela. Isso deve ser realizado através do comando 
+O próximo passo é adicionar os hostnames em cada VM, de acordo com a tabela 1. Isso deve ser realizado através do comando:
 
-`sudo hostnamectl set-hostname <hostname>`
-
+```shell
+sudo hostnamectl set-hostname <hostname>
+```
+Figura 8: Configuração do Hostname
 ![atribuindo nomes aos servidores hostname](https://user-images.githubusercontent.com/88728695/187567989-f8e9758a-71b2-451e-8215-55a7a3ef2156.png)
 
 
-## SSH e firewall
+# SSH e firewall
 
-Agora iniciamos o processo de preparação para a instalação do servidor ssh. Para isso, novamente digitamos o comando `sudo nano /etc/netplan/01-netcfg.yaml`.
-Ao abrir o arquivo você deverá:
-- Comentar a linha de IP
-- Comentar a linha de gateway4
-- Reativar o dhcp (true)
--
+Agora iniciamos o processo de preparação para a instalação do servidor ssh. 
+
+1. Novamente digite o comando `sudo nano /etc/netplan/01-netcfg.yaml`
+
+- Ao abrir o arquivo você deverá:
+  - Comentar a linha de IP
+  - Comentar a linha de gateway4
+  - Reativar o dhcp (true)
+
+Figura 9
 ![comentando as linhas IP e ativando o dhcp nas configurações do netplan](https://user-images.githubusercontent.com/88728695/187570512-680b4427-1e84-4140-911a-ae354e654af2.png)
 
-- Deverá, também, trocar a configuração de rede do adaptador 1 para NAT.
+ - Deverá, também, trocar a configuração de rede do adaptador 1 para NAT.
 
-Posteriormente, é necessário atualizar os pacotes com as novas definições e versões do repositório do Ubuntu, utilizando os comandos:
+2. Posteriormente, é necessário atualizar os pacotes com as novas definições e versões do repositório do Ubuntu, utilizando os comandos:
 
- `sudo apt update`
- 
- `sudo apt upgrade -y`
- 
+```shell
+sudo apt update
+```
+
+```shell
+sudo apt upgrade -y
+```
+Figura 10
 ![atualizando as definições e versoes de pacotes dos repositórios ubuntu](https://user-images.githubusercontent.com/88728695/187571620-fff01831-6b6a-45c2-b372-0031247974e5.png)
 
-Após a finalização dessa etapa, nós iniciamos a instalação do servidor servidor ssh. Ao digitar o comando `systemctl status ssh` verificamos que o shh estava inativo, então é necessário que ele seja instalado. Desse modo, utilizamos o comando:
+Após a finalização dessa etapa, nós iniciamos a instalação do servidor servidor ssh. 
 
-`sudo apt-get install openssh-server`
+1. Digite:
+```shell
+systemctl status ssh
+``` 
+ - verificamos que o shh estava inativo, então é necessário que ele seja instalado. Desse modo, utilizamos o comando:
+
+```shell
+sudo apt-get install openssh-server
+```
+Figura 11
+![VirtualBox_VM1-PC3_25_08_2022_09_48_15](https://user-images.githubusercontent.com/88728695/187684546-85108fc0-9d8a-4f92-9408-abbc7d8e6ab9.png)
+
 >Você pode digitar novamente o primeiro comando para se certificar que está tudo certo.
 
-Após a instação do ssh é necessário ajustar o firewall, a fim de permitir conexões remotas. Para ajustá-lo digite:
+2. Após a instação do ssh é necessário ajustar o firewall, a fim de permitir conexões remotas. Para ajustá-lo digite:
+
 ```shell
 sudo ufw allow ssh
 sudo ufw enable
 ```
+Figura 12
 ![ativando o firewall](https://user-images.githubusercontent.com/88728695/187575175-65d6b0f5-665d-4f3c-8248-66c660c7c904.png)
 
-## Acesso via Host Only
-
-1.
-2.
-3.
-4. Na vm, verifique a existência de ``enp0s8``, utilizando o comando `ifconfig -a`.
-5. Caso não haja, é necessário adicioná-lo. Para isso, volte no arquivo `sudo nano /etc/netplan/01-netcfg.yaml` e o edite.
-
-![segundo dhcp](https://user-images.githubusercontent.com/88728695/187667183-671c12ab-fc0d-47df-9fb7-66dae6b26b29.png)
-
-6. Depois, digite `sudo netplan apply` para ativar as mudanças.
-7. Além disso, é necessário ir nas configurações de rede e habilitar o adaptador 2. 
-8. Para visualizar se tudo ocorreu corretamente, digite `ifconfig -a`. A resposta deverá ser assim:
-
-![configurações ativadas e IP da nova interface checado](https://user-images.githubusercontent.com/88728695/187668160-0b860de0-f1ab-41ee-a3ed-034c7281808f.png)
+- Ao final desse processo você deve descomentar as linhas de ip e getway4, e também desativar o dhcp.
+> Lembre-se que para que essas mudanças sejam efetivas, você deve digitar `sudo netplan apply`
 
 
-## Nomes estáticos 
+# Nomes estáticos 
 
-Para configurar os nomes estáticos digite o comando:
+1. Para configurar os nomes estáticos digite o comando:
 
 ```shell
 sudo nano /etc/hosts
 ```
 
-Utilizando a tabela 1, modifque o arquivo hosts.
+2. Utilizando a tabela 1, modifque o arquivo hosts.
 
+Figura 13
 ![_adicionando os nomes estáticos o](https://user-images.githubusercontent.com/88728695/187666306-4ee58503-b828-46a9-b7b1-948eab71a723.png)
 
 ### Usuários
 
-Agora, é necessário adicionar 4 usuários iguais em todas as VMs. Para melhor organização, você pode criar uma tabela.
+- Agora, é necessário adicionar 4 usuários iguais em todas as VMs. Para melhor organização, você pode criar uma tabela.
 
 |  Usuário         |  
 |------------------|
@@ -213,13 +257,39 @@ Agora, é necessário adicionar 4 usuários iguais em todas as VMs. Para melhor 
 | thiago           | 
 | janjan           | 
 
-O comando para adicionar os usuários é:
+  - O comando para adicionar os usuários é:
 
 ```shell
  sudo adduser <usuário>
 ```
+Figura 14
 ![adicionando users](https://user-images.githubusercontent.com/88728695/187670056-9cc50fa3-9c51-4161-8fc4-9f435e53a5df.png)
 
+# Fazendo a conexão entre as máquinas
+
+1. Mudar as configurações de rede do adaptador 1 para `Placa em modo Bridge`.
+
+2. Conectar o cabo ethernet dos computadores ao switch de 8 portas.
+
+Figura 15: Switch de 8 portas 
+![switch conectado](https://user-images.githubusercontent.com/88728695/187676186-fee835a4-431c-43ab-bc7c-e65e85bbcc48.jpeg)
+
+Figura 16:  Cabos ethernet conectados ao switch
+![switch conectado](https://user-images.githubusercontent.com/88728695/187676120-481802f3-4c28-43a9-9f65-7398764acebe.jpeg)
+
+Figura 17: Rede formada pelos 4 PCs
+![thiago apontando pra rede](https://user-images.githubusercontent.com/88728695/187676216-a824f92c-c95d-44bb-b50e-dcc27a593370.jpeg)
+
+3. Logar em outra VM da rede utilizando o comando:
+     ```shell
+     ssh <usuario>@<ip>
+     ```
+    
+# Testes
+
+### PING
 
 
+
+### SSH
 
