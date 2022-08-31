@@ -153,6 +153,29 @@ Ao abrir o arquivo você deverá:
 - Deverá, também, trocar a configuração de rede do adaptador 1 deve ser trocada para NAT
 
 Posteriormente, é necessário atualizar os pacotes com as novas definições e versões do repositório do Ubuntu, utilizando os comandos:
+
  `sudo apt update`
  
  `sudo apt upgrade -y`
+ 
+![atualizando as definições e versoes de pacotes dos repositórios ubuntu](https://user-images.githubusercontent.com/88728695/187571620-fff01831-6b6a-45c2-b372-0031247974e5.png)
+
+Após a finalização dessa etapa, nós iniciamos a instalação do servidor servidor ssh. Ao digitar o comando `systemctl status ssh` verificamos que o shh estava inativo, então é necessário que ele seja instalado. Desse modo, utilizamos o comando:
+
+`sudo apt-get install openssh-server`
+>Você pode digitar novamente o primeiro comando para se certificar que está tudo certo
+
+Após a instação do ssh é necessário ajustar o firewall, a fim de permitir conexões remotas. Para ajustá-lo digite:
+```shell
+sudo ufw allow ssh
+sudo ufw enable
+```
+![ativando o firewall](https://user-images.githubusercontent.com/88728695/187575175-65d6b0f5-665d-4f3c-8248-66c660c7c904.png)
+
+## Acesso remoto SSH com Host Only
+
+## Nomes estáticos 
+
+
+
+
