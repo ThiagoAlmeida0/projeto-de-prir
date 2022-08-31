@@ -142,3 +142,17 @@ O próximo passo foi adicionar os hostnames em cada VM, de acordo com a tabela. 
 
 ## SSH e firewall
 
+Agora iniciamos o processo de preparação para a instalação do servidor ssh. Para isso, novamente digitamos o comando `sudo nano /etc/netplan/01-netcfg.yaml`.
+Ao abrir o arquivo você deverá:
+- Comentar a linha de IP
+- Comentar a linha de gateway4
+- Reativar o dhcp (true)
+-
+![comentando as linhas IP e ativando o dhcp nas configurações do netplan](https://user-images.githubusercontent.com/88728695/187570512-680b4427-1e84-4140-911a-ae354e654af2.png)
+
+- Deverá, também, trocar a configuração de rede do adaptador 1 deve ser trocada para NAT
+
+Posteriormente, é necessário atualizar os pacotes com as novas definições e versões do repositório do Ubuntu, utilizando os comandos:
+ `sudo apt update`
+ 
+ `sudo apt upgrade -y`
