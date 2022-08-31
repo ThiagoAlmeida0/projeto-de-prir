@@ -174,7 +174,8 @@ sudo hostnamectl set-hostname <hostname>
 ```
 Figura 8: Configuração do Hostname
 
-![atribuindo nomes aos servidores hostname](https://user-images.githubusercontent.com/88728695/187567989-f8e9758a-71b2-451e-8215-55a7a3ef2156.png)
+![atribuindo nomes aos servidores hostname]![image](https://user-images.githubusercontent.com/103062558/187726759-2fecdbc8-e8a8-40f3-97ff-bd54e9d71ee1.png)
+
 
 
 # SSH e firewall
@@ -190,7 +191,8 @@ Agora iniciamos o processo de preparação para a instalação do servidor ssh.
 
 Figura 9
 
-![comentando as linhas IP e ativando o dhcp nas configurações do netplan](https://user-images.githubusercontent.com/88728695/187570512-680b4427-1e84-4140-911a-ae354e654af2.png)
+![comentando as linhas IP e ativando o dhcp nas configurações do netplan]![image](https://user-images.githubusercontent.com/103062558/187726856-f0aee799-043e-4006-b23c-a3f1240343b3.png)
+
 
  - Deverá, também, trocar a configuração de rede do adaptador 1 para NAT.
 
@@ -220,7 +222,8 @@ sudo apt-get install openssh-server
 ```
 Figura 11
 
-![VirtualBox_VM1-PC3_25_08_2022_09_48_15](https://user-images.githubusercontent.com/88728695/187684546-85108fc0-9d8a-4f92-9408-abbc7d8e6ab9.png)
+![VirtualBox_VM1-PC3_25_08_2022_09_48_15]![image](https://user-images.githubusercontent.com/103062558/187727018-05b57596-98bf-4830-92af-8d4050dede1b.png)
+
 
 >Você pode digitar novamente o primeiro comando para se certificar que está tudo certo.
 
@@ -232,7 +235,8 @@ sudo ufw enable
 ```
 Figura 12
 
-![ativando o firewall](https://user-images.githubusercontent.com/88728695/187575175-65d6b0f5-665d-4f3c-8248-66c660c7c904.png)
+![ativando o firewall]![image](https://user-images.githubusercontent.com/103062558/187727186-cb58efa8-e319-4fcf-89dc-d6cd3c7462ad.png)
+
 
 - Ao final desse processo você deve descomentar as linhas de ip e getway4, e também desativar o dhcp.
 > Lembre-se que para que essas mudanças sejam efetivas, você deve digitar `sudo netplan apply`
@@ -269,7 +273,8 @@ Figura 13
  sudo adduser <usuário>
 ```
 Figura 14
-![adicionando users](https://user-images.githubusercontent.com/88728695/187670056-9cc50fa3-9c51-4161-8fc4-9f435e53a5df.png)
+![adicionando users]![image](https://user-images.githubusercontent.com/103062558/187727405-654d5563-535a-4ae0-929c-3d4ec0e95e9d.png)
+
 
 # Fazendo a conexão entre as máquinas
 
