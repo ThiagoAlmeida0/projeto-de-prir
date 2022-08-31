@@ -163,9 +163,7 @@ Figura 7: Configuração do IP
 ifconfig -a
 ```
 
-#
-
-### Configuração dos hostnames
+## Configuração dos hostnames
 
 O próximo passo é adicionar os hostnames em cada VM, de acordo com a tabela 1. Isso deve ser realizado através do comando:
 
@@ -173,6 +171,7 @@ O próximo passo é adicionar os hostnames em cada VM, de acordo com a tabela 1.
 sudo hostnamectl set-hostname <hostname>
 ```
 Figura 8: Configuração do Hostname
+
 ![atribuindo nomes aos servidores hostname](https://user-images.githubusercontent.com/88728695/187567989-f8e9758a-71b2-451e-8215-55a7a3ef2156.png)
 
 
@@ -188,6 +187,7 @@ Agora iniciamos o processo de preparação para a instalação do servidor ssh.
   - Reativar o dhcp (true)
 
 Figura 9
+
 ![comentando as linhas IP e ativando o dhcp nas configurações do netplan](https://user-images.githubusercontent.com/88728695/187570512-680b4427-1e84-4140-911a-ae354e654af2.png)
 
  - Deverá, também, trocar a configuração de rede do adaptador 1 para NAT.
@@ -202,6 +202,7 @@ sudo apt update
 sudo apt upgrade -y
 ```
 Figura 10
+
 ![atualizando as definições e versoes de pacotes dos repositórios ubuntu](https://user-images.githubusercontent.com/88728695/187571620-fff01831-6b6a-45c2-b372-0031247974e5.png)
 
 Após a finalização dessa etapa, nós iniciamos a instalação do servidor servidor ssh. 
@@ -216,6 +217,7 @@ systemctl status ssh
 sudo apt-get install openssh-server
 ```
 Figura 11
+
 ![VirtualBox_VM1-PC3_25_08_2022_09_48_15](https://user-images.githubusercontent.com/88728695/187684546-85108fc0-9d8a-4f92-9408-abbc7d8e6ab9.png)
 
 >Você pode digitar novamente o primeiro comando para se certificar que está tudo certo.
@@ -227,6 +229,7 @@ sudo ufw allow ssh
 sudo ufw enable
 ```
 Figura 12
+
 ![ativando o firewall](https://user-images.githubusercontent.com/88728695/187575175-65d6b0f5-665d-4f3c-8248-66c660c7c904.png)
 
 - Ao final desse processo você deve descomentar as linhas de ip e getway4, e também desativar o dhcp.
@@ -244,6 +247,7 @@ sudo nano /etc/hosts
 2. Utilizando a tabela 1, modifque o arquivo hosts.
 
 Figura 13
+
 ![_adicionando os nomes estáticos o](https://user-images.githubusercontent.com/88728695/187666306-4ee58503-b828-46a9-b7b1-948eab71a723.png)
 
 ### Usuários
@@ -288,8 +292,19 @@ Figura 17: Rede formada pelos 4 PCs
 # Testes
 
 ### PING
+Para esse tipo de teste serão utilizados respectivamente os IPs, hostnames, FQDNs e aliases (tabela 1).
 
+Figura 18:
 
+![ping-pc1(vm2)-pc2-pc3(vm1) (1)](https://user-images.githubusercontent.com/88728695/187689291-5e736e3a-07b1-4996-945a-9f73879e0069.png)
+
+Figura 19:
+
+![ping-pc3(vm2)-pc4-pc(vm1) (1)](https://user-images.githubusercontent.com/88728695/187689299-ac3e2b38-7779-43d3-b4b1-b6907ab0e19e.png)
 
 ### SSH
+
+![ssh-pc1(vm2)-pc2(vm1)](https://user-images.githubusercontent.com/88728695/187691197-4ca78caf-d275-4e73-8c60-485083d98105.png)
+
+![ssh-pc4](https://user-images.githubusercontent.com/88728695/187691206-e6c0e905-aae2-49d5-9314-22ca455cd8b8.png)
 
