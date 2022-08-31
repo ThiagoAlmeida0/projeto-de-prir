@@ -112,7 +112,8 @@ Com as VMs já criadas, é necessário fazer login como administrador:
 sudo apt-get install net-tools
 ```
 Figura 6: Instalação do pacote net-tools
-![login feito ](https://user-images.githubusercontent.com/88728695/187567249-2c8698d3-ba8b-4a25-b5eb-98bb572b07ee.png)
+![login feito ]![image](https://user-images.githubusercontent.com/103062558/187726156-8690b453-5aba-4875-8fe9-3374b72d533c.png)
+
 
 
 ## Configuração dos IPs
