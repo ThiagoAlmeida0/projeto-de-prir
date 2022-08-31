@@ -324,7 +324,7 @@ Figura 18: Respectivamente:
 - Ping vm1-pc1 para v2-pc2 (FQDN)
 - Ping vm1-pc1 para vm1-pc3 (aliase)
 
-![ping-pc1(vm2)-pc2-pc3(vm1) (1)](https://user-images.githubusercontent.com/88728695/187689291-5e736e3a-07b1-4996-945a-9f73879e0069.png)
+<img src="Imagens/ping-pc1(vm2)-pc2-pc3(vm1).png" title="Figura 23: " width="800" />
 
 Figura 19: Respectivamente:
 - Ping vm2-pc1 para vm2-pc3 (IP)
@@ -332,7 +332,7 @@ Figura 19: Respectivamente:
 - Ping vm2-pc1 para vm2-pc4(FQDN)
 - Ping vm2-pc1 para vm1-pc1 (aliase)
 
-![ping-pc3(vm2)-pc4-pc(vm1) (1)](https://Projetouser-images.githubusercontent.com/88728695/187689299-ac3e2b38-7779-43d3-b4b1-b6907ab0e19e.png)
+<img src="Imagens/ping-pc3(vm2)-pc4-pc(vm1).png" title="Figura 23: " width="800" />
 
 ### SSH
 
