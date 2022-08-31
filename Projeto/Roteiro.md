@@ -53,7 +53,7 @@ Para melhor organização das máquinas, as organizaremos em uma tabela com suas
 
 Tabela 1: Definições de endereços IPs da Rede e Nomes de Hosts
 
-|  DESCRICAO       |       IP        |      HOSTNAME     |          FQDN                      |     ALIASE       |
+|  DESCRIÇÃO       |       IP        |      HOSTNAME     |          FQDN                      |     ALIASE       |
 |------------------|-----------------|-------------------|------------------------------------|------------------|
 | VM1-PC1          | 192.168.24.98   |   grupo7-vm1-pc1  | alan.grupo7-924.ifalara.net        | ala              |               
 | VM2-PC1          | 192.168.24.99   |   grupo7-vm2-pc1  | barbosa.grupo7-924.ifalara.net     | bab              |
@@ -82,7 +82,7 @@ Tabela 1: Definições de endereços IPs da Rede e Nomes de Hosts
 
 ![Criacao da máquina](https://user-images.githubusercontent.com/88728695/187518320-0aac1e6c-1f86-4c28-9aa0-59d57b5a9684.png)
 
-Antes de dar prosseguimento ao projeto, é necessário fazer a instalação do pacote net-tools para que tudo funcione corretamente. O comando que a ser utilizado é:
+Com as VMs já criadas, é necessário fazer a instalação do pacote net-tools para que tudo funcione corretamente. O comando que a ser utilizado é:
 
 `sudo apt-get install net-tools`
 
@@ -92,21 +92,41 @@ Em seguida, é necessário logar como administrador:
 
 ## Configuração dos IPs
 
-Após logar nas VMs, 
+Após logar nas VMs:
 
 1. Primeiro é necessário verificar o nome do arquivo netplan, digitando o comando:
 `ls -la /etc/netplan`
-  - A saída que for dada será utilizada para acessar o arquivo, sendo digitada depois de netplan/
-
-2. Acesse o arquivo.Em nosso caso o comando foi:
+  
+2. Acesse o arquivo .YAML
 `sudo nano /etc/netplan/01-netcfg.yaml`
+   >A saída que foi dada ao digitar o primeiro comando será utilizada para acessar o arquivo, sendo digitada depois de `netplan/`.
 
 3. Ao abrir o arquivo, ele apresentará as seguintes configurações:
  
+ ```shell
 network:
   ethernets:
     enp0os3:
       dhcp4: true
   version: 2
+```
+   - Primeiro, insira os campos `addresses` e `gateway4` dentro de `enp0os3`.
+   - Depois, desative o dhcp4, mudando o seu valor para false.
+  >Para salvar as modficações, digite Ctrl+x, depois y e aperte enter
 
+Para aplicar efetivamente as mudanças, digite o comando:
+
+`sudo netplan apply`
+
+Ao final dessa etapa o arquivo `.YAML` deverá estar assim:
+
+![configuração estática do ip](https://user-images.githubusercontent.com/88728695/187564956-a75ee26a-fc85-4cc9-9d14-d8bd1f335352.png)
+
+>É identação correta é de extrema importância nessa etapa. Para que não ocorra nenhum erro, utilize a tecla espaço para realizar essa ação, e não a tecla tab.
+
+* Para visualizar se as mudanças foram efetividas, digite o comando:
+`ifconfig -a`
+
+#
+## SSH e firewall
 
