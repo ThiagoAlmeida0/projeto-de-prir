@@ -31,11 +31,10 @@ As máquinas virtuais devem ser criadas seguindo os especificações abaixo:
 
 ### Topologia da rede
 
- A topologia utilizada nesse projeto é a estrela. Neste tipo, 
+ A topologia que utilizamos foi a do tipo estrela, nesse modelo existe um HUB central, no nosso caso um switch, que faz o gerenciamento dos dados que passam pela rede, por causa disso é nescessário que para a rede funcionar todas as máquinas devem estar conectadas ao switch por cabo de rede. Sendo assim também os dados não passam por todas as máquinas, mas somento pela qual o dado está endereçado.
  
- 
- 
- ![Topografia drawio](https://user-images.githubusercontent.com/88728695/187520442-13669a17-05a3-4130-8b4a-03c7406bc523.png)
+<p><center> Figura 1: Topologia estrela</center></p>   
+<img src="Imagens/topologia-estrela.png" title="Figura 1: Topologia de Rede Estrela" width="1000" />
 
  
 
