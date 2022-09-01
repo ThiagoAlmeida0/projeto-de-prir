@@ -7,6 +7,11 @@
                
                Turma 924
                
+               
+               
+    
+    https://github.com/ThiagoAlmeida0/projeto-de-prir/blob/main/Projeto/Roteiro.md
+    
 
 |  DESCRICAO       |       IP        |      HOSTNAME     |          FQDN                      |     ALIASE       |
 |------------------|-----------------|-------------------|------------------------------------|------------------|
