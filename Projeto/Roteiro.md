@@ -286,7 +286,7 @@ Figura 16:
 
 6. Ligue a VM e verifique a existência da interface ``enp0s8``. Novamente utilize `ifconfig -a`
 
-Figura 16: Verificando a existência da interface "enp0s8"
+Figura 17: Verificando a existência da interface "enp0s8"
 <img src="Imagens/aplicação das das configurações e checagem das interfaces através do ifconfig -a.png" title="Figura: " width="800" />
 
 7. Acesse o arquivo `yaml` e ative o dhcp para interface enp0s8.
@@ -297,12 +297,12 @@ sudo nano /etc/netplan/01-netcfg.yaml
 ```shell
 sudo netplan apply
 ```
-Figura 17: Configurando a interface 
+Figura 18: Configurando a interface 
 <img src="Imagens/segundo dhcp (1).png" title="Figura: " width="800" />
 
 9. Verfique se tudo funcionou corretamente com `ifconfig -a`
 
-Figura 18: Interface enp0s8 funcionando
+Figura 19: Interface enp0s8 funcionando
 <img src="Imagens/configurações ativadas e IP da nova interface checado (1).png" title="Figura: " width="800" />
 
 # Nomes estáticos 
@@ -315,7 +315,7 @@ sudo nano /etc/hosts
 
 2. Utilizando a tabela 1, modifque o arquivo hosts.
 
-Figura 18:
+Figura 20:
 
 ![_adicionando os nomes estáticos o](https://user-images.githubusercontent.com/88728695/187666306-4ee58503-b828-46a9-b7b1-948eab71a723.png)
 
@@ -337,7 +337,7 @@ Tabela 2: Usuários
 ```shell
  sudo adduser <usuário>
 ```
-Figura 19
+Figura 21
 ![adicionando users]![image](https://user-images.githubusercontent.com/103062558/187727405-654d5563-535a-4ae0-929c-3d4ec0e95e9d.png)
 
 
@@ -347,13 +347,13 @@ Figura 19
 
 2. Conectar o cabo ethernet dos computadores ao switch de 8 portas.
 
-Figura 20: Switch de 8 portas 
+Figura 22: Switch de 8 portas 
 ![switch funcionando](https://user-images.githubusercontent.com/88728695/187913392-abb48629-ec10-4bdc-9736-c45fd2e4f110.jpeg)
 
-Figura 21:  Cabos ethernet conectados ao switch
+Figura 23:  Cabos ethernet conectados ao switch
 ![switch conectado](https://user-images.githubusercontent.com/88728695/187676120-481802f3-4c28-43a9-9f65-7398764acebe.jpeg)
 
-Figura 22: Rede formada pelos 4 PCs
+Figura 24: Rede formada pelos 4 PCs
 ![thiago apontando pra rede](https://user-images.githubusercontent.com/88728695/187676216-a824f92c-c95d-44bb-b50e-dcc27a593370.jpeg)
 
 3. Logar em outra VM da rede utilizando o comando:
@@ -368,7 +368,7 @@ Depois de seguir todos os passos acima, a última etapa do projeto é testar e v
 ### PING
 Para esse tipo de teste serão utilizados respectivamente os IPs, hostnames, FQDNs e aliases (tabela 1).
 
-Figura 23: Respectivamente:
+Figura 25: Respectivamente:
 - Ping vm1-pc1 para vm2-pc1 (IP)
 - Ping vm1-pc1 para vm1-pc2 (Hostname)
 - Ping vm1-pc1 para v2-pc2 (FQDN)
@@ -376,7 +376,7 @@ Figura 23: Respectivamente:
 
 <img src="Imagens/ping-pc1(vm2)-pc2-pc3(vm1).png" title="Figura 23: " width="800" />
 
-Figura 24: Respectivamente:
+Figura 26: Respectivamente:
 - Ping vm2-pc1 para vm2-pc3 (IP)
 - Ping vm2-pc1 para vm1-pc4 (Hostname)
 - Ping vm2-pc1 para vm2-pc4(FQDN)
@@ -386,14 +386,14 @@ Figura 24: Respectivamente:
 
 ### SSH
 
-Figura 25: Respectivamente:
+Figura 27: Respectivamente:
 
 - SSH vm1-pc1 para vm2-pc1 no user alan (IP) 
 - SSH vm1-pc1 para vm1-pc2 no user isadora (Hostname)
 
 <img src="Imagens/SSH_pt1.jpg" title="Figura 20: " width="800" />
 
-Figura 26:
+Figura 28:
 
 - SSH vm1-pc1 para v2-pc2 no user thiago (FQDN)
 
@@ -401,14 +401,14 @@ Figura 26:
 
 <img src="Imagens/SSH_pt2.jpg" title="Figura 21: " width="800" />
 
-Figura 27:
+Figura 29:
 
 - SSH vm1-pc1 para vm1-pc3 no user janjan (aliase)
 - SSH vm1-pc1 para vm2-pc3 no user janjan (aliase)
 
 <img src="Imagens/SSH_pt3.jpg" title="Figura 22: " width="800" />
 
-Figura 28:
+Figura 30:
 
 - SSH vm1-pc1 para vm1-pc4 no user alan (IP) 
 - SSH vm1-pc1 para vm2-pc4 no user alan (IP) 
