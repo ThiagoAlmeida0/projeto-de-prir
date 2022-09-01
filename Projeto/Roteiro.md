@@ -92,7 +92,7 @@ Tabela 1: Definições de endereços IPs da Rede e Nomes de Hosts
 1. O primeiro passo consiste na criação de uma pasta para salvar as VMs. Em nosso caso, a pasta criada foi “924-grupo7” dentro da pasta “VM” de “labredes”.
 
 Figura 3: Pasta do grupo
-![Pasta do grupo](https://user-images.githubusercontent.com/88728695/187516969-d07a7ae3-c672-49a4-b56b-f244c3f3ed1e.png)
+<img src="Imagens/pasta_do_grupo.png" title="Figura 1: Topologia de Rede Estrela" width="1000" />
 
 2. Em seguida, abrimos o virtualbox e criamos duas máquinas virtuais, seguindo os padrões de hardware já comentados anteriormente.  A criação das máquinas consiste em:
     - Importar o appliance, que está salvo na subpasta “images” da pasta “labredes”.
@@ -100,13 +100,14 @@ Figura 3: Pasta do grupo
     `Arquivo > importar appliance `
     
     Figura 4: Importação do appliance
-    ![Importação do appliance](https://user-images.githubusercontent.com/88728695/187517914-f256b80f-16e3-4021-bf60-3b6546bc845f.png)
+    <img src="Imagens/importação-do-appliance.png" title="Figura 1: Topologia de Rede Estrela" width="1000" />
 
     - Mudar o nome da VM, seguindo o padrão da tabela;
     - Mudar a pasta padrão para a pasta que foi criada.
 
 Figura 5: Criação da VM
-![Criacao da máquina](https://user-images.githubusercontent.com/88728695/187518320-0aac1e6c-1f86-4c28-9aa0-59d57b5a9684.png)
+ <img src="Imagens/criacao-da-maquina.png" title="Figura 1: Topologia de Rede Estrela" width="1000" />
+
 
 Com as VMs já criadas, é necessário fazer login como administrador:
 ` Login: administrador
@@ -118,8 +119,7 @@ Com as VMs já criadas, é necessário fazer login como administrador:
 sudo apt-get install net-tools
 ```
 Figura 6: Instalação do pacote net-tools
-![login feito ]![image](https://user-images.githubusercontent.com/103062558/187726447-ae4a5e35-1091-47f2-b4be-a2765ed61eed.png)
-
+ <img src="Imagens/net-tools.png" title="Figura 1: Topologia de Rede Estrela" width="1000" />
 
 
 
@@ -162,7 +162,7 @@ Ao final dessa etapa o arquivo `.YAML` deverá estar assim:
 
 Figura 7: Configuração do IP
 
-![configuração estática 2](https://user-images.githubusercontent.com/88728695/187685382-68216c44-d2c9-4891-9f6b-77e2ed540d6f.png)
+ <img src="Imagens/ip.png" title="Figura 1: Topologia de Rede Estrela" width="1000" />
 
 >A identação correta é de extrema importância nessa etapa. Para que não ocorra nenhum erro, utilize a tecla espaço para realizar essa ação, e não a tecla tab.
 
@@ -181,7 +181,7 @@ sudo hostnamectl set-hostname <hostname>
 ```
 Figura 8: Configuração do Hostname
 
-![atribuindo nomes aos servidores hostname]![image](https://user-images.githubusercontent.com/103062558/187726759-2fecdbc8-e8a8-40f3-97ff-bd54e9d71ee1.png)
+<img src="Imagens/hostname.png" title="Figura 1: Topologia de Rede Estrela" width="1000" />
 
 
 
@@ -198,8 +198,9 @@ Agora iniciamos o processo de preparação para a instalação do servidor ssh.
 
 Figura 9
 
-Comentando as linhas IP e ativando o dhcp nas configurações do netplan![image](https://user-images.githubusercontent.com/103062558/187726856-f0aee799-043e-4006-b23c-a3f1240343b3.png)
+Comentando as linhas IP e ativando o dhcp nas configurações do netplan
 
+<img src="Imagens/topster.png" title="Figura 1: Topologia de Rede Estrela" width="1000" />
 
  - Deverá, também, trocar a configuração de rede do adaptador 1 para NAT.
 
@@ -214,7 +215,7 @@ sudo apt upgrade -y
 ```
 Figura 10
 
-![atualizando as definições e versoes de pacotes dos repositórios ubuntu](https://user-images.githubusercontent.com/88728695/187571620-fff01831-6b6a-45c2-b372-0031247974e5.png)
+<img src="Imagens/update.png" title="Figura 1: Topologia de Rede Estrela" width="1000" />
 
 Após a finalização dessa etapa, nós iniciamos a instalação do servidor servidor ssh. 
 
@@ -229,8 +230,7 @@ sudo apt-get install openssh-server
 ```
 Figura 11
 
-![VirtualBox_VM1-PC3_25_08_2022_09_48_15]![image](https://user-images.githubusercontent.com/103062558/187727018-05b57596-98bf-4830-92af-8d4050dede1b.png)
-
+<img src="Imagens/aa.png" title="Figura 1: Topologia de Rede Estrela" width="1000" />
 
 >Você pode digitar novamente o primeiro comando para se certificar que está tudo certo.
 
@@ -242,8 +242,7 @@ sudo ufw enable
 ```
 Figura 12
 
-![ativando o firewall]![image](https://user-images.githubusercontent.com/103062558/187727186-cb58efa8-e319-4fcf-89dc-d6cd3c7462ad.png)
-
+<img src="Imagens/sfw.png" title="Figura 1: Topologia de Rede Estrela" width="1000" />
 
 - Ao final desse processo você deve descomentar as linhas de ip e getway4, e também desativar o dhcp.
 > Lembre-se que para que essas mudanças sejam efetivas, você deve digitar `sudo netplan apply`
