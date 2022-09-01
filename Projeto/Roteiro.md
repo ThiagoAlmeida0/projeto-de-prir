@@ -17,17 +17,19 @@ Com o objetivo de colocar em prática os conhecimentos adquiridos ao longo das m
 
 ### [SSH e firewall](#ssh-e-firewall)
 
+### [Host Only](#host-only)
+
 ### [Nomes estáticos](#nomes-estáticos)
  * [Configuração dos nomes estáticos](#nomes-estáticos)
  * [Adiocionando usuários](#usuários)
 
 ### [Conexão entre as máquinas](#conexão-entre-as-máquinas)
 
-### Testes
+### [Testes](#testes)
  * [PINGs](#ping)
  * [SSH](#ssh)
 
-### Considerações finais
+### [Considerações finais](#considerações-finais)
 #
 
 # Introdução
@@ -42,13 +44,12 @@ As máquinas virtuais utilizadas contém as seguintes especificações técninas
 
 - Processador: 1 CPU 
 - Memória principal: 512mb
-- Memŕoia secundária: 10gb
-- Memóriade vídeo: 16mb
+- Memória secundária: 10gb
+- Memória de vídeo: 16mb
 
 Figura 1: Configuração de hardware das VMs
 
 <img src="Imagens/configuraçãoDaVm.png" title="Figura 23: " width="800" />
-
 
 
 ### Topologia da rede
@@ -197,7 +198,7 @@ Agora iniciamos o processo de preparação para a instalação do servidor ssh.
 
 Figura 9
 
-![comentando as linhas IP e ativando o dhcp nas configurações do netplan]![image](https://user-images.githubusercontent.com/103062558/187726856-f0aee799-043e-4006-b23c-a3f1240343b3.png)
+Comentando as linhas IP e ativando o dhcp nas configurações do netplan![image](https://user-images.githubusercontent.com/103062558/187726856-f0aee799-043e-4006-b23c-a3f1240343b3.png)
 
 
  - Deverá, também, trocar a configuração de rede do adaptador 1 para NAT.
@@ -248,6 +249,50 @@ Figura 12
 > Lembre-se que para que essas mudanças sejam efetivas, você deve digitar `sudo netplan apply`
 
 
+# Host Only
+
+Esta configuração permite o acesso  remoto à uma VM pelo terminal do PC via ssh.
+
+- É necessário criar uma interface no PC para a comunicação entre o host e a VM, para isso:
+
+1. Vá no virtual box e clique em `arquivo > Host Network Manager` e crie/habilite a interface.
+
+Figura 13
+
+3. Depois vá em `propriedades` e habilite o servidor dhcp.
+
+Figura 14
+
+5. Agora, no terminal do PC, verfique a existência da existência da interface ``vboxnet0`` utilizando o comando:
+```shell
+ifconfig -a
+```
+4. Volte ao virtual box e acesse as configurações de rede da sua VM (isso deve ser realizado em apenas uma da rede).
+5. Habilite a placa de rede do adaptador 2 e o conecte a `Placa de rede exlcusiva de hospedeiro (Host-Only)
+
+Figura 15
+
+6. Ligue a VM e verifique a existência da interface ``enp0s8``. Novamente utilize `ifconfig -a`
+
+Figura 16: Verificando a existência da interface "enp0s8"
+<img src="Imagens/aplicação das das configurações e checagem das interfaces através do ifconfig -a.png" title="Figura: " width="800" />
+
+7. Acesse o arquivo `yaml` e ative o dhcp para interface enp0s8.
+```shell
+sudo nano /etc/netplan/01-netcfg.yaml
+```
+8. Aplique as mudanças com:
+```shell
+sudo netplan apply
+```
+Figura 17: Configurando a interface 
+<img src="Imagens/segundo dhcp (1).png" title="Figura: " width="800" />
+
+9. Verfique se tudo funcionou corretamente com `ifconfig -a`
+
+Figura 18: Interface enp0s8 funcionando
+<img src="Imagens/configurações ativadas e IP da nova interface checado (1).png" title="Figura: " width="800" />
+
 # Nomes estáticos 
 
 1. Para configurar os nomes estáticos digite o comando:
@@ -258,7 +303,7 @@ sudo nano /etc/hosts
 
 2. Utilizando a tabela 1, modifque o arquivo hosts.
 
-Figura 13
+Figura 18:
 
 ![_adicionando os nomes estáticos o](https://user-images.githubusercontent.com/88728695/187666306-4ee58503-b828-46a9-b7b1-948eab71a723.png)
 
@@ -280,7 +325,7 @@ Tabela 2: Usuários
 ```shell
  sudo adduser <usuário>
 ```
-Figura 14
+Figura 19
 ![adicionando users]![image](https://user-images.githubusercontent.com/103062558/187727405-654d5563-535a-4ae0-929c-3d4ec0e95e9d.png)
 
 
@@ -290,13 +335,13 @@ Figura 14
 
 2. Conectar o cabo ethernet dos computadores ao switch de 8 portas.
 
-Figura 15: Switch de 8 portas 
-![switch conectado](https://user-images.githubusercontent.com/88728695/187676186-fee835a4-431c-43ab-bc7c-e65e85bbcc48.jpeg)
+Figura 20: Switch de 8 portas 
+![switch funcionando](https://user-images.githubusercontent.com/88728695/187913392-abb48629-ec10-4bdc-9736-c45fd2e4f110.jpeg)
 
-Figura 16:  Cabos ethernet conectados ao switch
+Figura 21:  Cabos ethernet conectados ao switch
 ![switch conectado](https://user-images.githubusercontent.com/88728695/187676120-481802f3-4c28-43a9-9f65-7398764acebe.jpeg)
 
-Figura 17: Rede formada pelos 4 PCs
+Figura 22: Rede formada pelos 4 PCs
 ![thiago apontando pra rede](https://user-images.githubusercontent.com/88728695/187676216-a824f92c-c95d-44bb-b50e-dcc27a593370.jpeg)
 
 3. Logar em outra VM da rede utilizando o comando:
@@ -311,7 +356,7 @@ Depois de seguir todos os passos acima, a última etapa do projeto é testar e v
 ### PING
 Para esse tipo de teste serão utilizados respectivamente os IPs, hostnames, FQDNs e aliases (tabela 1).
 
-Figura 18: Respectivamente:
+Figura 23: Respectivamente:
 - Ping vm1-pc1 para vm2-pc1 (IP)
 - Ping vm1-pc1 para vm1-pc2 (Hostname)
 - Ping vm1-pc1 para v2-pc2 (FQDN)
@@ -319,7 +364,7 @@ Figura 18: Respectivamente:
 
 <img src="Imagens/ping-pc1(vm2)-pc2-pc3(vm1).png" title="Figura 23: " width="800" />
 
-Figura 19: Respectivamente:
+Figura 24: Respectivamente:
 - Ping vm2-pc1 para vm2-pc3 (IP)
 - Ping vm2-pc1 para vm1-pc4 (Hostname)
 - Ping vm2-pc1 para vm2-pc4(FQDN)
@@ -329,14 +374,14 @@ Figura 19: Respectivamente:
 
 ### SSH
 
-Figura 20: Respectivamente:
+Figura 25: Respectivamente:
 
 - SSH vm1-pc1 para vm2-pc1 no user alan (IP) 
 - SSH vm1-pc1 para vm1-pc2 no user isadora (Hostname)
 
 <img src="Imagens/SSH_pt1.jpg" title="Figura 20: " width="800" />
 
-Figura 21:
+Figura 26:
 
 - SSH vm1-pc1 para v2-pc2 no user thiago (FQDN)
 
@@ -344,14 +389,14 @@ Figura 21:
 
 <img src="Imagens/SSH_pt2.jpg" title="Figura 21: " width="800" />
 
-Figura 22:
+Figura 27:
 
 - SSH vm1-pc1 para vm1-pc3 no user janjan (aliase)
 - SSH vm1-pc1 para vm2-pc3 no user janjan (aliase)
 
 <img src="Imagens/SSH_pt3.jpg" title="Figura 22: " width="800" />
 
-Figura 23:
+Figura 28:
 
 - SSH vm1-pc1 para vm1-pc4 no user alan (IP) 
 - SSH vm1-pc1 para vm2-pc4 no user alan (IP) 
