@@ -15,17 +15,17 @@ Com o objetivo de colocar em prática os conhecimentos adquiridos ao longo das m
  * [Configuração dos IPs](#configuração-dos-ips)
  * [Configuração dos hostnames](#configuração-dos-hostnames)
 
-### [SSH e firewall](#sssh-e-firewall-3)
+### [SSH e firewall](#ssh-e-firewall)
 
-### Nomes estáticos 
+### [Nomes estáticos](#nomes-estáticos)
  * [Configuração dos nomes estáticos](#nomes-estáticos)
  * [Adiocionando usuários](#usuários)
 
-### Conexão entre as máquinas
+### [Conexão entre as máquinas](#conexão-entre-as-máquinas)
 
 ### Testes
  * [PINGs](#ping)
- * [SSH](#ssh-e-firewall)
+ * [SSH](#ssh)
 
 ### Considerações finais
 #
