@@ -1,16 +1,16 @@
-# Projeto da matéria de PRIR 
+# Projeto de criação de rede virtual com o Ubuntu Server
+
+Projeto avaliativo das disciplinas de redes de computadores (PIRD/SERD) direcionado aos alunos do 4º ano do ensino médio técnico integrado em informática do IFAL-Arapiraca.
 
 ### Alunos
-               Alan Barbosa dos Santos
-               Thiago Almeida Pereira Filho
-               Isadora Barbosa Macedo Canuto Ferreira
-               
-               Turma 924
-               
-               
-               
+ - Alan Barbosa dos Santos
+ - Isadora Barbosa Macedo Canuto Ferreira
+ - Thiago Almeida Pereira Filho
+
+ #### Turma 924 - grupo 7
+ 
+  - Roteiro de desenvolvimento do projeto [aqui](https://github.com/ThiagoAlmeida0/projeto-de-prir/blob/main/Projeto/Roteiro.md)
     
-    https://github.com/ThiagoAlmeida0/projeto-de-prir/blob/main/Projeto/Roteiro.md
     
 
 |  DESCRICAO       |       IP        |      HOSTNAME     |          FQDN                      |     ALIASE       |
