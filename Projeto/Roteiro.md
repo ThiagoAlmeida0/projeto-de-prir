@@ -10,12 +10,12 @@ Com o objetivo de colocar em prática os conhecimentos adquiridos ao longo das m
 * [Topologia da rede](#topologia-da-rede)
 * [Organização dos IPs](#organização-dos-ips)
 
-### Máquinas virtuais
+### [Máquinas virtuais](#máquinas-virtuais)
  * [Criação das VMs](#criação-das-vms)
  * [Configuração dos IPs](#configuração-dos-ips)
  * [Configuração dos hostnames](#configuração-dos-hostnames)
 
-### SSH e firewall
+### [SSH e firewall](#sssh-e-firewall-3)
 
 ### Nomes estáticos 
  * [Configuração dos nomes estáticos](#nomes-estáticos)
