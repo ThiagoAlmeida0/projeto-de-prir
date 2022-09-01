@@ -36,7 +36,7 @@ Com o objetivo de colocar em prática os conhecimentos adquiridos ao longo das m
 
 ### Descrição do projeto
 
-Com o objetivo de colocar em prática os conhecimentos adquiridos ao longo das matérias de redes de computadores, este roteiro detalha os procedimentos necessários para a criação de um ambiente de rede com 8 máquinas virtuais (VM), que utilizam o Sistema Operacionl Ubuntu Server. Para isso, serão utilizados 4 computadores do laboratório de redes, que devem se conectar através de um switch, para resultar em servidores conectados em uma mesma rede e com acesso remoto através do ssh.
+Com o objetivo de colocar em prática os conhecimentos adquiridos ao longo das matérias de redes de computadores, este roteiro detalha os procedimentos necessários para a criação de um ambiente de rede com 8 máquinas virtuais (VM), que utilizam o Sistema Operacionl Ubuntu Server. Para isso, serão utilizados 4 computadores do laboratório de redes, que devem se conectar através de um switch, para resultar em servidores conectados em um mesma rede e com acesso remoto através do ssh.
 
 ### Configurações de hardware		
 
@@ -54,7 +54,7 @@ Figura 1: Configuração de hardware das VMs
 
 ### Topologia da rede
 
- A topologia que utilizamos foi a do tipo estrela, nesse modelo existe um HUB central, no nosso caso um switch, que faz o gerenciamento dos dados que passam pela rede, por causa disso é nescessário que para a rede funcionar todas as máquinas devem estar conectadas ao switch por cabo de rede. Sendo assim também os dados não passam por todas as máquinas, mas somente pela qual o dado está endereçado.
+ A topologia que utilizamos foi a do tipo estrela, nesse modelo existe um HUB central, no nosso caso um switch, que faz o gerenciamento dos dados que passam pela rede, por causa disso é nescessário que para a rede funcionar todas as máquinas devem estar conectadas ao switch por cabo de rede. Sendo assim também os dados não passam por todas as máquinas, mas somento pela qual o dado está endereçado.
  
 <p><center> Figura 2: Topologia estrela</center></p>   
 <img src="Imagens/topologia-estrela.png" title="Figura 1: Topologia de Rede Estrela" width="1000" />
@@ -257,20 +257,32 @@ Esta configuração permite o acesso  remoto à uma VM pelo terminal do PC via s
 
 1. Vá no virtual box e clique em `arquivo > Host Network Manager` e crie/habilite a interface.
 
-Figura 13
+Figura 13: Gerenciador de redes do hospedeiro - adaptador
+
+<img src="Imagens/gerenciador de redes do hospedeiro -adaptador.png" title="Figura: " width="800" />
 
 3. Depois vá em `propriedades` e habilite o servidor dhcp.
 
-Figura 14
+Figura 14: Gerenciador de redes do hospedeiro - DHCP
+
+<img src="Imagens/gerenciador de redes do hospedeiro - dhcp.png" title="Figura: " width="800" />
+
 
 5. Agora, no terminal do PC, verfique a existência da existência da interface ``vboxnet0`` utilizando o comando:
 ```shell
 ifconfig -a
 ```
+Figura 15:
+
+<img src="Imagens/ifconfig terminal.png" title="Figura: " width="800" />
+
 4. Volte ao virtual box e acesse as configurações de rede da sua VM (isso deve ser realizado em apenas uma da rede).
 5. Habilite a placa de rede do adaptador 2 e o conecte a `Placa de rede exlcusiva de hospedeiro (Host-Only)
 
-Figura 15
+Figura 16: 
+
+<img src="Imagens/adaptador2.png" title="Figura: " width="800" />
+
 
 6. Ligue a VM e verifique a existência da interface ``enp0s8``. Novamente utilize `ifconfig -a`
 
