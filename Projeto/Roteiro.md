@@ -43,8 +43,8 @@ Com o objetivo de colocar em prática os conhecimentos adquiridos ao longo das m
 As máquinas virtuais utilizadas contém as seguintes especificações técninas:
 
 - Processador: 1 CPU 
-- Memória principal: 512mb
-- Memória secundária: 10gb
+- Memória RAM: 512mb
+- HD: 10gb
 - Memória de vídeo: 16mb
 
 Figura 1: Configuração de hardware das VMs
@@ -65,12 +65,14 @@ Figura 1: Configuração de hardware das VMs
 Para melhor organização das máquinas, as organizaremos em uma tabela com suas descrições, IPs, Hostnames, FQDNs e aliases, seguindo o seguinte padrão:
 - Descrição:
 - IP: ` 192.168.24.[i] `
-  - [ i ] varia entre 99 e 105
+  - [ i ] varia entre 98 e 105
 - Hostname: `grupo7-vm[x]-pc[y]` 
   - [ x ] varia entre 1 e 2
   - [ y ] varia entre 1 e 4 
 - FQDN: `[nome] grupo7-924.ifalara.net`
 - Aliase: 3 primeiras letras dos nomes e sobrenomes dos integrantes do grupo
+- Faixa de rede: `97 - 105`
+- Gateway: `192.168.24.97`
 
 Tabela 1: Definições de endereços IPs da Rede e Nomes de Hosts
 
@@ -324,12 +326,18 @@ Figura 20:
 
 Tabela 2: Usuários
 
-|  Usuário         |  
-|------------------|
-| alan             | 
-| isadora          | 
-| thiago           | 
-| janjan           | 
+
+|         VM         |      Usuário     |     Senha    |
+|--------------------|------------------|--------------|
+|VM1-PC1 até VM2-PC3 |      alan        |     grupo    | 
+|VM1-PC1 até VM2-PC3 |     isadora      |     grupo    |   
+|VM1-PC1 até VM2-PC3 |     thiago       |     grupo    | 
+|VM1-PC1 até VM2-PC3 |     janjan       |     grupo    | 
+|VM1-PC4 e VM2-PC4   |      alan        |    adminifal | 
+|VM1-PC4 e VM2-PC4   |     isadora      |    adminifal | 
+|VM1-PC4 e VM2-PC4   |     thiago       |    adminifal | 
+|VM1-PC4 e VM2-PC4   |      janjan      |    adminifal | 
+
 
   - O comando para adicionar os usuários é:
 
